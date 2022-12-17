@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:toure_app/ui/style/textStyle.dart';
 import '../../const/AppColor.dart';
 
-
-Future<Widget> customTextField(controller, String hintText) async {
-  return TextField(
-      controller: controller, decoration: InputDecoration(hintText: hintText));
+Widget customTextFormField(
+    controller, String hintText, keyboardType)  {
+  return TextFormField(
+      controller: controller,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+          hintText: hintText, hintStyle: textStyle.style_m_15black));
 }
-
-Future<Widget> customTextField2(
+Widget customTextField(
   controller,
-) async {
+)  {
   return Container(
     height: 50,
     decoration: BoxDecoration(
@@ -21,27 +24,27 @@ Future<Widget> customTextField2(
   );
 }
 
- Future<Widget> textfieldsearch(String hintText) async{
+Widget textfieldsearch(String hintText, controller)  {
   return Container(
-    height: 50, 
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8))),
+    height: 50,
+    decoration:
+        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8))),
     child: TextField(
+      controller: controller,
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        hintText:hintText ,
-        icon: Icon(Icons.search)
-      ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          hintText: hintText,
+          hintStyle: textStyle.style_L_15black,
+          icon: Icon(Icons.search)),
     ),
-  ); 
+  );
 }
 
-
-Future<Widget> TextFieldMultiline(
+Widget TextFieldMultiline(
   controller,
-) async {
+)  {
   return Container(
     height: 50,
     decoration: BoxDecoration(
@@ -49,9 +52,8 @@ Future<Widget> TextFieldMultiline(
         borderRadius: BorderRadius.all(Radius.circular(8))),
     child: TextField(
       controller: controller,
-        keyboardType: TextInputType.multiline,
+      keyboardType: TextInputType.multiline,
       maxLines: null,
     ),
   );
 }
-

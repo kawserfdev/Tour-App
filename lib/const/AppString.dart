@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppString {
   static const appname = 'Shelter Travel Agency';
-
-
   static const applogo = "assets/logo/shelter_logo.png";
   static const facebook_logo = "assets/logo/facebook_logo.png";
   static const gapbanner = "assets/image/gapbanner.png";
@@ -11,7 +9,7 @@ class AppString {
 
   static const Create_Account = 'Create\nYour Account';
   static const Create_account_start_journey =
-      'Create your account and start your\n journey';
+      'Create your account and start your\n journey.......';
   static const Email_Address = 'E-mail Address';
   static const Enter_Password = 'Enter Password';
   static const Already_an_user = 'Already an user? ';

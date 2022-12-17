@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'package:toure_app/ui/route/route.dart';
 import 'package:toure_app/ui/style/textStyle.dart';
 import 'package:toure_app/ui/widget/appButton/AppButton.dart';
@@ -65,12 +66,31 @@ class User_Form extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10,),
           SizedBox(
-            height: 60,
+            height: 10,
           ),
-          SizedBox(height: 80,),
-          VioletButton('Submit', ()=>Get.toNamed(privacyPolicy))
+          ToggleSwitch(
+            minWidth: 100.0,
+            initialLabelIndex: 1,
+            cornerRadius: 18.0,
+            activeFgColor: Colors.white,
+            inactiveBgColor: Colors.grey,
+            inactiveFgColor: Colors.white,
+            totalSwitches: 2,
+            labels: ['Male', 'Female'],
+            icons: [Icons.male, Icons.female],
+            activeBgColors: [
+              [Colors.pink],
+              [Colors.pink]
+            ],
+            onToggle: (index) {
+              print('switched to: $index');
+            },
+          ),
+          SizedBox(
+            height: 80,
+          ),
+          VioletButton('Submit', () => Get.toNamed(privacyPolicy))
         ]),
       ),
     );

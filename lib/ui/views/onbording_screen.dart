@@ -14,7 +14,6 @@ class Onbording_Screen extends StatelessWidget {
   List<String> _lottie = Assets.assetjson;
 
   RxInt _currentIndex = 0.obs;
-
   @override
   Widget build(BuildContext context) {
     //size of the window
@@ -116,7 +115,8 @@ class Onbording_Screen extends StatelessWidget {
                           )
                         ]),
                   ),
-                )),
+                ),
+                ),
           ],
         ),
       ),
