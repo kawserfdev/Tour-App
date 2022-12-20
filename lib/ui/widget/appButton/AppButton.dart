@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toure_app/ui/style/textStyle.dart';
 import '../../../const/AppColor.dart';
@@ -18,15 +19,15 @@ class VioletButton extends StatelessWidget {
           onAction();
         },
         child: Container(
-          height: 45,
+          height: 45.h,
           decoration: BoxDecoration(
               color: AppColor.blue,
-              borderRadius: BorderRadius.all(Radius.circular(5))),
+              borderRadius: BorderRadius.all(Radius.circular(5.r))),
           child: _value == false
               ? Center(
                   child: Text(
                     title,
-                    style: textStyle.style_m_17white,
+                    style:  TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w300,color: AppColor.white),
                   ),
                 )
               : Row(
@@ -35,13 +36,13 @@ class VioletButton extends StatelessWidget {
                     Center(
                       child: Text(
                         'Please wait',
-                        style: textStyle.style_m_17white,
+                        style:TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w300,color: AppColor.white),
                       ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Transform.scale(scale: 0.5,child: CircularProgressIndicator(
+                    Transform.scale(scale: 0.5.r,child: CircularProgressIndicator(
                       color: AppColor.white,
                     ))
                   ],

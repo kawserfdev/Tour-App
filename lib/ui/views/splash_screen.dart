@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:toure_app/const/AppString.dart';
 import 'package:toure_app/ui/route/route.dart';
-import 'package:toure_app/ui/style/textStyle.dart';
+import '../../const/AppColor.dart';
 
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({super.key});
@@ -12,10 +14,20 @@ class Splash_Screen extends StatefulWidget {
 }
 
 class _Splash_ScreenState extends State<Splash_Screen> {
+final box=GetStorage();
+
+Future chooseScreen()async{
+  var userId=box.read('uid');
+  if (userId==null) {
+    Get.toNamed(main_homeScreen);
+  }else{
+    Get.toNamed(main_homeScreen);
+  }
+}
 
 @override
   void initState() {
-     Future.delayed(Duration(seconds: 3), () => Get.toNamed(onbording));
+     Future.delayed(Duration(seconds: 3), () => chooseScreen());
     super.initState();
   }
 
@@ -33,7 +45,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
             ),
             Text(
               AppString.appname,
-              style: textStyle.style_sb_20black,
+              style:  TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w800,color: AppColor.black),
             )
           ],
         ),

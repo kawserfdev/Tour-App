@@ -1,12 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toure_app/const/AppColor.dart';
 import 'package:toure_app/const/AppString.dart';
 import 'package:toure_app/ui/route/route.dart';
-import 'package:toure_app/ui/style/textStyle.dart';
 import 'package:toure_app/ui/widget/appButton/AppButton.dart';
 import 'package:toure_app/ui/widget/textField.dart';
+
+import '../../../bussiness logic/auth.dart';
 
 class Sign_In extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
@@ -16,53 +18,53 @@ class Sign_In extends StatelessWidget {
     
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80, right: 30, left: 30),
+        padding:  EdgeInsets.only(top: 80.r, right: 30.r, left: 30.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               AppString.LoginAccountText,
-              style: textStyle.style_m_36black,
+              style: TextStyle(fontSize: 36.sp,fontWeight: FontWeight.w500,color: AppColor.black),
             ),
           
             SizedBox(
-              height: 80,
+              height: 80.h,
             ),
             customTextFormField(_emailController, AppString.Email_Address, TextInputType.emailAddress),
             customTextFormField(_passController, AppString.Enter_Password, TextInputType.text),
-            SizedBox(height: 40,),
-            VioletButton("Login",(){}),
+            SizedBox(height: 40.h,),
+            VioletButton("Login",()=>Aouth().signIn(_emailController.text, _passController.text, context)),
             SizedBox(
-              height: 10,
+              height: 10.h,
             ),
             Align(
               alignment: Alignment.center,
               child: Text(
-                '--OR--',style:textStyle.style_L_15black,
+                '--OR--',style:TextStyle(fontSize: 15.sp,fontWeight: FontWeight.w300,color: AppColor.black),
                 textAlign: TextAlign.start,
               ),
             ),
             SizedBox(
-              height: 10 ,
+              height: 10.h ,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              IconButton(onPressed: (){}, icon: Image.asset(AppString.google_logo,scale: 2,)),
-              IconButton(onPressed: (){}, icon: Image.asset(AppString.facebook_logo,scale: 2,)),
+              IconButton(onPressed: (){}, icon: Image.asset(AppString.google_logo,scale: 1.8.r,)),
+              IconButton(onPressed: (){}, icon: Image.asset(AppString.facebook_logo,scale: 1.8.r,)),
             ],),
             SizedBox(
-              height: 20 ,
+              height: 20.h ,
             ),
             Align(
               alignment: Alignment.center,
               child: RichText(text: TextSpan(
                 text: AppString.Don_not_have_registered_yet,
-                style: textStyle.style_m_17black,
+                style: TextStyle(fontSize: 17.sp,fontWeight: FontWeight.w500,color: AppColor.black),
                  children:[
                   TextSpan(
                     text:'Sign Up',style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 17.sp,
                       color: AppColor.blue,
                       fontWeight: FontWeight.w600
                     ),

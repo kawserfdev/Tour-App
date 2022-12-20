@@ -1,13 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:toure_app/const/AppColor.dart';
 import 'package:toure_app/const/assets.dart';
 import 'package:toure_app/ui/route/route.dart';
 import 'package:toure_app/ui/style/textStyle.dart';
-import '../style/sizeConfig.dart';
-
 class Onbording_Screen extends StatelessWidget {
   List<String> _title = Assets.Onbording_title;
   List<String> _description = Assets.Onbording_description;
@@ -17,11 +16,10 @@ class Onbording_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //size of the window
-    SizeConfig().init(context);
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(30.r),
         child: Column(
           children: [
             Obx(
@@ -34,22 +32,22 @@ class Onbording_Screen extends StatelessWidget {
                   width: double.maxFinite,
                   decoration: BoxDecoration(
                     color: AppColor.background,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.r)),
                     boxShadow: [
                       BoxShadow(
                           color: AppColor.black,
                           offset: Offset(4.0, 4.0),
-                          blurRadius: 10,
-                          spreadRadius: 1.0),
+                          blurRadius: 10.r,
+                          spreadRadius: 1.0.r),
                       BoxShadow(
                           color: AppColor.white,
                           offset: Offset(-4.0, -4.0),
-                          blurRadius: 5,
-                          spreadRadius: 1.0),
+                          blurRadius: 5.r,
+                          spreadRadius: 1.0.r),
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(30),
+                    padding:  EdgeInsets.all(30.r),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,12 +55,12 @@ class Onbording_Screen extends StatelessWidget {
                           Obx(
                             () => Text(
                               '${_title[_currentIndex.toInt()]}',
-                              style: textStyle.style_sb_20black,
+                              style:  TextStyle(fontSize: 25.sp,fontWeight: FontWeight.w800,color: AppColor.black),
                             ),
                           ),
                           Obx(
                             () => Text('${_description[_currentIndex.toInt()]}',
-                                style: textStyle.style_L_20black),
+                                style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w300,color: AppColor.black)),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,8 +72,8 @@ class Onbording_Screen extends StatelessWidget {
                                   decorator: DotsDecorator(
                                     color: AppColor.gray,
                                     activeColor: AppColor.black,
-                                    size: Size.square(10.0),
-                                    activeSize: Size(15.0, 15.0),
+                                    size: Size.square(10.0.r),
+                                    activeSize: Size(15.0.r, 15.0.r),
                                   ),
                                 ),
                               ),
@@ -88,8 +86,8 @@ class Onbording_Screen extends StatelessWidget {
                                   }
                                 },
                                 child: Container(
-                                  height: SizeConfig.screenHeight! / 18,
-                                  width: SizeConfig.screenWidth! / 18,
+                                  height:35.h,
+                                  width: 35.w,
                                   decoration: BoxDecoration(
                                       color: AppColor.background,
                                       shape: BoxShape.circle,
@@ -97,13 +95,13 @@ class Onbording_Screen extends StatelessWidget {
                                         BoxShadow(
                                             color: AppColor.black,
                                             offset: Offset(3.0, 3.0),
-                                            blurRadius: 10,
-                                            spreadRadius: 1.0),
+                                            blurRadius: 10.r,
+                                            spreadRadius: 1.0.r),
                                         BoxShadow(
                                             color: AppColor.white,
                                             offset: Offset(-3.0, -3.0),
-                                            blurRadius: 5,
-                                            spreadRadius: 1.0),
+                                            blurRadius: 5.r,
+                                            spreadRadius: 1.0.r),
                                       ]),
                                   child: Icon(
                                     Icons.double_arrow,

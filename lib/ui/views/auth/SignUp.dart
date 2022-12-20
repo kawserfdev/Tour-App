@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toure_app/bussiness%20logic/auth.dart';
 import 'package:toure_app/const/AppColor.dart';
 import 'package:toure_app/const/AppString.dart';
 import 'package:toure_app/ui/route/route.dart';
@@ -16,40 +18,40 @@ class SignUp extends StatelessWidget {
     
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80, right: 30, left: 30),
+        padding:  EdgeInsets.only(top: 80.r, right: 30.r, left: 30.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               AppString.Create_Account,
-              style: textStyle.style_m_36black,
+              style: TextStyle(fontSize: 36.sp,fontWeight: FontWeight.w500,color: AppColor.black),
             ),
             SizedBox(
-              height: 12,
+              height: 12.h,
             ),
             Text(
               AppString.Create_account_start_journey,
               textAlign: TextAlign.start,
             ),
             SizedBox(
-              height: 80,
+              height: 80.h,
             ),
             customTextFormField(_emailController, AppString.Email_Address, TextInputType.emailAddress),
             customTextFormField(_passController, AppString.Enter_Password, TextInputType.text),
-            SizedBox(height: 40,),
-            VioletButton("Create Account",()=>Get.toNamed(userForm)),
+            SizedBox(height: 40.h,),
+            VioletButton("Create Account",()=>Aouth().signUp(_emailController.text, _passController.text, context)),
             SizedBox(
-              height: 10,
+              height: 10.h,
             ),
             Align(
               alignment: Alignment.center,
               child: Text(
-                '--OR--',style:textStyle.style_L_15black,
+                '--OR--',style:TextStyle(fontSize: 15.sp,fontWeight: FontWeight.w300,color: AppColor.black),
                 textAlign: TextAlign.start,
               ),
             ),
             SizedBox(
-              height: 10 ,
+              height: 10.h ,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -64,11 +66,11 @@ class SignUp extends StatelessWidget {
               alignment: Alignment.center,
               child: RichText(text: TextSpan(
                 text: AppString.Already_an_user,
-                style: textStyle.style_m_17black,
+                style: TextStyle(fontSize: 17.sp,fontWeight: FontWeight.w500,color: AppColor.black),
                  children:[
                   TextSpan(
                     text:'log In',style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 17.sp,
                       color: AppColor.blue,
                       fontWeight: FontWeight.w600
                     ),

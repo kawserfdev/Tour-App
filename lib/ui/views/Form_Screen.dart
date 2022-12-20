@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:toure_app/bussiness%20logic/form.dart';
 import 'package:toure_app/ui/route/route.dart';
-import 'package:toure_app/ui/style/textStyle.dart';
 import 'package:toure_app/ui/widget/appButton/AppButton.dart';
+import '../../const/AppColor.dart';
 import '../../const/AppString.dart';
 import '../widget/textField.dart';
 
@@ -12,6 +14,9 @@ class User_Form extends StatelessWidget {
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
   Rx<TextEditingController> _dobController = TextEditingController().obs;
+
+  String? dob;
+  String gender = "Male";
   Rx<DateTime> selectedDate = DateTime.now().obs;
   _selectDate(BuildContext context) async {
     final selected = await showDatePicker(
@@ -19,10 +24,11 @@ class User_Form extends StatelessWidget {
         initialDate: selectedDate.value,
         firstDate: DateTime(2000),
         lastDate: DateTime(2030));
+        if (selected != null && selected != selectedDate) {
+      dob = "${selected.day} - ${selected.month} - ${selected.year}";
+      _dobController.value.text = dob!;
 
-    if (selected != null && selected != selectedDate) {
-      _dobController.value.text =
-          "${selected.day}-${selected.month}-${selected.year}";
+
     }
   }
 
@@ -30,21 +36,24 @@ class User_Form extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80, right: 30, left: 30),
+        padding: EdgeInsets.only(top: 80.r, right: 30.r, left: 30.r),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             AppString.MoreAbout,
-            style: textStyle.style_m_36black,
+            style: TextStyle(
+                fontSize: 36.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColor.black),
           ),
           SizedBox(
-            height: 12,
+            height: 12.h,
           ),
           Text(
             AppString.info_sefty,
             textAlign: TextAlign.start,
           ),
           SizedBox(
-            height: 50,
+            height: 50.h,
           ),
           customTextFormField(
               _nameController, 'Full Name', TextInputType.emailAddress),
@@ -58,7 +67,10 @@ class User_Form extends StatelessWidget {
               readOnly: true,
               decoration: InputDecoration(
                 hintText: 'Date of Birth',
-                hintStyle: textStyle.style_m_15black,
+                hintStyle: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColor.black),
                 suffixIcon: IconButton(
                   onPressed: () => _selectDate(context),
                   icon: Icon(Icons.calendar_month),
@@ -67,12 +79,12 @@ class User_Form extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 10.h,
           ),
           ToggleSwitch(
-            minWidth: 100.0,
+            minWidth: 100.0.w,
             initialLabelIndex: 1,
-            cornerRadius: 18.0,
+            cornerRadius: 18.0.r,
             activeFgColor: Colors.white,
             inactiveBgColor: Colors.grey,
             inactiveFgColor: Colors.white,
@@ -84,13 +96,26 @@ class User_Form extends StatelessWidget {
               [Colors.pink]
             ],
             onToggle: (index) {
+              if (index == 0) {
+                gender = "Male";
+              } else {
+                gender == "Female";
+              }
               print('switched to: $index');
             },
           ),
           SizedBox(
-            height: 80,
+            height: 80.h,
           ),
-          VioletButton('Submit', () => Get.toNamed(privacyPolicy))
+          VioletButton(
+            'Submit',
+            () => UsersInfo().sendFormDatatoDB(
+                _nameController.text,
+                int.parse(_phoneController.text),
+                _addressController.text,
+                dob!,
+                gender),
+          ),
         ]),
       ),
     );
