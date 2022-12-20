@@ -29,10 +29,10 @@ class App extends StatelessWidget {
         future: _initializetion,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-            // return MyApp();
+            // return Center(
+            //   child: CircularProgressIndicator(),
+            // );
+             return MyApp();
 
           }
           if (snapshot.connectionState == ConnectionState.done) {

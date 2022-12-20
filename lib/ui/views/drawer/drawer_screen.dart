@@ -26,7 +26,7 @@ class DrawerScreen extends StatelessWidget {
           drawerItem(AppString.PrivacyText,  ()=>Get.toNamed(privacy)),
           drawerItem(AppString.faqText,  ()=>Get.toNamed(faq)),
           drawerItem(AppString.Rate_UsText,  ()=>Get.toNamed(rate_Us)),
-          drawerItem(AppString.How_to_useText,  ()=>Get.toNamed(how_to_use)),
+          drawerItem(AppString.How_to_useText,  ()=>Get.toNamed(howToUse)),
           Expanded(child: SizedBox()),
           InkWell(
             onTap: ()=>Get.toNamed(settings),

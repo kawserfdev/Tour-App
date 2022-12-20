@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:toure_app/bussiness%20logic/form.dart';
-import 'package:toure_app/ui/route/route.dart';
 import 'package:toure_app/ui/widget/appButton/AppButton.dart';
 import '../../const/AppColor.dart';
 import '../../const/AppString.dart';

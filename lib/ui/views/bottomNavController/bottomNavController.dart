@@ -9,9 +9,9 @@ class BottomNavController extends StatelessWidget {
   RxInt _currentIndex = 0.obs;
   RxBool _drawer = false.obs;
   final _pages = [
-    NavFavorite_Screen(),
-    NavAdd_Screen(),
-    NavHome_Screen(),
+    HomePage(),
+    NavAddPage(),
+    FavouritePage(),
   ];
   @override
   Widget build(BuildContext context) {
