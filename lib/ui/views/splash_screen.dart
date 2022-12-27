@@ -19,7 +19,7 @@ final box=GetStorage();
 Future chooseScreen()async{
   var userId=box.read('uid');
   if (userId==null) {
-    Get.toNamed(main_homeScreen);
+    Get.toNamed(onbording);
   }else{
     Get.toNamed(main_homeScreen);
   }
@@ -27,7 +27,7 @@ Future chooseScreen()async{
 
 @override
   void initState() {
-     Future.delayed(Duration(seconds: 3), () => chooseScreen());
+     Future.delayed(Duration(seconds: 2), () => chooseScreen());
     super.initState();
   }
 

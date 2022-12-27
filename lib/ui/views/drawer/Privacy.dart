@@ -9,7 +9,7 @@ class Privacy extends StatelessWidget {
 
   showPrivacyPolicy(data) {
     return SfPdfViewer.network(
-      data['url'],
+      'https://firebasestorage.googleapis.com/v0/b/it-s-a-practice-project.appspot.com/o/privacy-policy-Data%2Fprivacy-policy-template.pdf?alt=media&token=f1b76ded-f809-4945-aa90-1c5c02a430a3',
       onDocumentLoaded: (PdfDocumentLoadedDetails details) {
         _loaded.value = true;
       },

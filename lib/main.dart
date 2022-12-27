@@ -17,11 +17,12 @@ class App extends StatelessWidget {
   final Future<FirebaseApp> _initializetion = Firebase.initializeApp(
     name: "Shelter",
     options: FirebaseOptions(
-        apiKey: "AIzaSyDKhH3GhabSnGzktDt-MYhQ5WNmV03JgI4",
-        appId: "1:324397974590:web:bf5f8019f8ff1693d6fd6f",
-        messagingSenderId: "324397974590",
-        projectId: "it-s-a-practice-project"),
+        apiKey: "AIzaSyDRZ7sGJhSf71wFzyiO5aR925hEmIpzPrE",
+        appId: "1:441377699260:android:48e1cde7499b7f9299a7b9",
+        messagingSenderId: "441377699260",
+        projectId: "splash-banking"),
   );
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +30,10 @@ class App extends StatelessWidget {
         future: _initializetion,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            // return Center(
-            //   child: CircularProgressIndicator(),
-            // );
-             return MyApp();
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+            // return MyApp();
 
           }
           if (snapshot.connectionState == ConnectionState.done) {
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
                   Theme.of(context).textTheme.apply(),
                 ),
                 scaffoldBackgroundColor: AppColor.background),
-            initialRoute: splash,
+            initialRoute:splash,
             getPages: getpages,
           );
         });

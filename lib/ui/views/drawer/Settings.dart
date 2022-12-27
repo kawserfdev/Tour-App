@@ -119,13 +119,13 @@ class Settings extends StatelessWidget {
               "languages".tr,
               () => changeLanguage(context),
             ),
-            Container(
-              height: 100,
-              width: 300,
-              decoration: BoxDecoration(
-                color: Get.isDarkMode == false ? Colors.amber : Colors.blue,
-              ),
-            ),
+            // Container(
+            //   height: 100,
+            //   width: 300,
+            //   decoration: BoxDecoration(
+            //     color: Get.isDarkMode == false ? Colors.amber : Colors.blue,
+            //   ),
+            // ),
           ],
         ),
       ),

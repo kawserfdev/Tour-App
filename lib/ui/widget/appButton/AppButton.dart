@@ -43,6 +43,7 @@ class VioletButton extends StatelessWidget {
                       width: 10,
                     ),
                     Transform.scale(scale: 0.5.r,child: CircularProgressIndicator(
+                      
                       color: AppColor.white,
                     ))
                   ],

@@ -1,12 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toure_app/const/AppString.dart';
 import 'package:toure_app/ui/route/route.dart';
 import 'package:toure_app/ui/views/tour_details.dart';
+import '../../../../const/AppColor.dart';
 import '../../../widget/navCategorye.dart';
 import '../../seeAll.dart';
 
@@ -22,7 +23,7 @@ class _NavHomeState extends State<HomePage> {
       FirebaseFirestore.instance.collection('all-data');
 
   final CollectionReference _carouselImage =
-      FirebaseFirestore.instance.collection('carousel-image');
+      FirebaseFirestore.instance.collection('benner_elements');
 
   //queryName
   late Future<QuerySnapshot> _futureDataForYou;
@@ -30,11 +31,15 @@ class _NavHomeState extends State<HomePage> {
   late Future<QuerySnapshot> _futureDataTopPlaces;
 
   //carousel-Image
-  List<String> _carouselImages = [];
+  List<String> _carouselImages = [
+    'https://firebasestorage.googleapis.com/v0/b/splash-banking.appspot.com/o/Elements%20of%20tour%20app%2Fdavid-vives-t0b06W6dGyI-unsplash.jpg?alt=media&token=de28095c-051c-4cb0-887f-beb36cdd5055',
+    'https://firebasestorage.googleapis.com/v0/b/splash-banking.appspot.com/o/Elements%20of%20tour%20app%2Ferik-karits-sVE1l2zs4lU-unsplash.jpg?alt=media&token=c36da427-83e3-4a8d-9db8-596b72ab5a5b',
+    'https://firebasestorage.googleapis.com/v0/b/splash-banking.appspot.com/o/Elements%20of%20tour%20app%2Ffineas-anton-0Ij2Nlt3bzM-unsplash.jpg?alt=media&token=b28b082d-6cd8-447a-bf7c-8536fc30147c'
+  ];
   var _dotPosition = 0;
   fetchCarouselImages() async {
     QuerySnapshot qn =
-        await FirebaseFirestore.instance.collection("carousel-image").get();
+        await FirebaseFirestore.instance.collection("benner_elements").get();
     setState(() {
       for (int i = 0; i < qn.docs.length; i++) {
         _carouselImages.add(
@@ -110,6 +115,10 @@ class _NavHomeState extends State<HomePage> {
                   height: 45.h,
                   decoration: BoxDecoration(
                     color: Colors.white38,
+                    border: Border.all(
+                        width: 0.5,
+                        color: AppColor.gray,
+                        style: BorderStyle.solid),
                     borderRadius: BorderRadius.all(
                       Radius.circular(6.r),
                     ),
@@ -126,7 +135,7 @@ class _NavHomeState extends State<HomePage> {
                           width: 10.w,
                         ),
                         Text(
-                          "Search for your next tour",
+                          AppString.Search_next_tour,
                           style: TextStyle(fontSize: 15.sp),
                         ),
                       ],

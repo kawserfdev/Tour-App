@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-
 import 'package:url_launcher/url_launcher.dart';
-
-
 import '../widget/dtails_heading_description.dart';
 
 class DetailsSCreen extends StatefulWidget {
@@ -131,7 +128,7 @@ class _DetailsSCreenState extends State<DetailsSCreen> {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.white,
+              color: Colors.white, 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

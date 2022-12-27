@@ -25,8 +25,8 @@ class Support extends StatelessWidget {
               ),
             ),
             Divider(color: Colors.blue,),
-            supportField("Phone", "01616738383"),
-            supportField("E-mail", "thed9922@gmail.com"),
+            supportField("Phone", "01925286359"),
+            supportField("E-mail", "shelterhelp@gmail.com"),
             supportField("Facebook", "http://facebook.com/shelter"),
 
           ],
